@@ -12,8 +12,8 @@ public class Snake : MonoBehaviour {
   public float FrameRate;
 
   private List<GameObject> SnakeComponents;
-  private bool SnakeMustGrow = false;
-  private bool SnakeMustDie = false;
+  public bool SnakeMustGrow = false;
+  public bool SnakeMustDie = false;
 
   private GameObject GetHead() {
     return SnakeComponents[0];
@@ -32,7 +32,6 @@ public class Snake : MonoBehaviour {
   }
 
   public void MoveInDirection(Vector3 MovementVector) {
-    // Debug.Log(System.String.Concat("[Snake::MoveOneStep()] Moving snake to ", MovementVector.ToString()));
     gameObject.transform.position = GetHead().transform.position + MovementVector;
   }
 
@@ -48,21 +47,21 @@ public class Snake : MonoBehaviour {
     SnakeComponents.Insert(1, SnakeBody);
 
     // Rotate elements
-    GetTail().transform.rotation = GetLastBody().transform.rotation;
-    GetHead().transform.rotation = Quaternion.FromToRotation(Vector3.right, MovementVector);
-    GetLastBody().transform.rotation = GetHead().transform.rotation;
+    //GetTail().transform.rotation = GetLastBody().transform.rotation;
+    //GetHead().transform.rotation = Quaternion.FromToRotation(Vector3.right, MovementVector);
+    //GetLastBody().transform.rotation = GetHead().transform.rotation;
   }
 
   private void Grow(Vector3 MovementVector) {
     // Instantiate new body at same position as head
     GameObject newBody = GameObject.Instantiate(body);
     newBody.transform.position = GetHead().transform.position;
-    newBody.transform.rotation = GetHead().transform.rotation;
+    // newBody.transform.rotation = GetHead().transform.rotation;
     newBody.name = "BodyPart";
 
     // Move head one step
     GetHead().transform.position = GetHead().transform.position + MovementVector;
-    GetHead().transform.rotation = Quaternion.FromToRotation(Vector3.right, MovementVector);
+    // GetHead().transform.rotation = Quaternion.FromToRotation(Vector3.right, MovementVector);
 
     // Insert element in SnakeComponents
     SnakeComponents.Insert(1, newBody);
@@ -85,24 +84,6 @@ public class Snake : MonoBehaviour {
       Move(MovementVector);
     }
     gameObject.transform.position += MovementVector;
-  }
-
-  private void OnTriggerEnter2D(Collider2D collision) {
-    string collisionName = collision.gameObject.name;
-    if (collisionName == "Food") {
-      SnakeMustGrow = true;
-    } else if (collisionName == "BodyPart" || collisionName == "TheTail") {
-      SnakeMustDie = true;
-    }
-  }
-
-  private void OnTriggerExit2D(Collider2D collision) {
-    string collisionName = collision.gameObject.name;
-    if (collisionName == "Food") {
-      SnakeMustGrow = false;
-    } else if (collisionName == "BodyPart" || collisionName == "TheTail") {
-      SnakeMustDie = false;
-    }
   }
 
   private void Awake() {
@@ -128,7 +109,7 @@ public class Snake : MonoBehaviour {
     int y = 0;
     for (int i = 0; i < SnakeComponents.Count; i++) {
       int x = -i;
-      Vector3 newPosition = new Vector3(x, y, 0);
+      Vector3 newPosition = new Vector3(x, y, -1);
       SnakeComponents[i].transform.position = newPosition;
     }
 

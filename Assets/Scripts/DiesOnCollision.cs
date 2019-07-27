@@ -2,15 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class DiesOnCollision : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void OnTriggerEnter(Collider collider)
+    {
+        Snake snake = GetComponent<Snake>();
+        string collisionName = collider.gameObject.name;
+        if (collisionName == "BodyPart" || collisionName == "TheTail" || collisionName == "BorderWall")
+        {
+            snake.SnakeMustDie = true;
+        }
+    }
+
+
+    public void OnTriggerExit(Collider collider)
+    {
+        Snake snake = GetComponent<Snake>();
+        string collisionName = collider.gameObject.name;
+        if (collisionName == "BodyPart" || collisionName == "TheTail" || collisionName == "BorderWall")
+        {
+            snake.SnakeMustDie = false;
+        }
+    }
 }

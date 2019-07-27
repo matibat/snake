@@ -19,9 +19,9 @@ public class Food : MonoBehaviour {
     isEaten = false;
   }
 
-  void OnTriggerEnter2D(Collider2D collision) {
-    if (collision.gameObject.name == "TheHead") {
-      Debug.Log(System.String.Concat("[Food::OnTriggerEnter2D()] I've been eaten"));
+  void OnTriggerEnter(Collider collision) {
+    if (collision.gameObject.name == "TheHead" || collision.gameObject.name == "TheTail" || collision.gameObject.name == "BodyPart") {
+      Debug.Log(System.String.Concat("[Food::OnTriggerEnter()] I've been eaten"));
       gameObject.SetActive(false);
       isEaten = true;
     }
