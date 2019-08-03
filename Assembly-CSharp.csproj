@@ -64,9 +64,12 @@
     <Compile Include="Assets\Scripts\BoardManager\BoardManager.cs" />
     <Compile Include="Assets\Scripts\BoardManager\Score.cs" />
     <Compile Include="Assets\Scripts\Food\Food.cs" />
+    <Compile Include="Assets\Scripts\Joystick4d\CircleExtension.cs" />
+    <Compile Include="Assets\Scripts\Joystick4d\Joystick4dController.cs" />
     <Compile Include="Assets\Scripts\Joystick4d\Skin.cs" />
     <Compile Include="Assets\Scripts\Snake\DiesOnCollision.cs" />
     <Compile Include="Assets\Scripts\Snake\EatsFood.cs" />
+    <Compile Include="Assets\Scripts\Snake\JoystickNavigation.cs" />
     <Compile Include="Assets\Scripts\Snake\Snake.cs" />
     <Compile Include="Assets\Scripts\UI\KeyboardController.cs" />
     <Compile Include="Assets\Scripts\UI\MenuController.cs" />
