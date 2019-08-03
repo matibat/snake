@@ -20,35 +20,32 @@ public class BoardManager : MonoBehaviour {
 
     // Grass
     for (int x = 0; x < Columns; x++) {
-      for (int y = 0; y < Columns; y++) {
+      for (int y = 0; y < Rows; y++) { 
         GameObject newObject = GameObject.Instantiate(Tile);
         newObject.transform.position = new Vector3(x-(Columns/2), y-(Rows/2), -.5f);
         GameBoard[x, y] = newObject;
       }
     }
 
-        // Border
-    for (int i = 0; i < Columns; i++)
-    {
+    // Border
+    for (int i = 0; i < Columns; i++) {
         GameObject newWall;
         newWall = GameObject.Instantiate(Border);
-        newWall.transform.position = new Vector3(i - (Columns / 2), -(Columns / 2), -1);
+        newWall.transform.position = new Vector3(i - (Columns / 2), -(Rows / 2) - 1, -1);
         newWall.name = "BorderWall";
         newWall = GameObject.Instantiate(Border);
-        newWall.transform.position = new Vector3(i - (Columns / 2), (Columns / 2), -1);
+        newWall.transform.position = new Vector3(i - (Columns / 2), (Rows / 2), -1);
         newWall.name = "BorderWall";
-        }
-        for (int i = 0; i < Rows; i++)
-    {
+    }
+    for (int i = 0; i < Rows; i++) {
         GameObject newWall;
         newWall = GameObject.Instantiate(Border);
         newWall.name = "BorderWall";
-        newWall.transform.position = new Vector3(-(Columns / 2), i - (Rows / 2), -1);
+        newWall.transform.position = new Vector3(-(Columns / 2) - 1, i - (Rows / 2), -1);
         newWall = GameObject.Instantiate(Border);
         newWall.transform.position = new Vector3((Columns / 2), i - (Rows / 2), -1);
         newWall.name = "BorderWall";
     }
-
     GameObject newScore = Instantiate(score);
     newScore.name = "Score";
     DontDestroyOnLoad(newScore);
