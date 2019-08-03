@@ -12,6 +12,7 @@ public class EatsFood : MonoBehaviour
         if (collisionName == "Food")
         {
             snake.SnakeMustGrow = true;
+            AddPointToScore();
         }
     }
 
@@ -23,5 +24,11 @@ public class EatsFood : MonoBehaviour
         {
             snake.SnakeMustGrow = false;
         }
+    }
+
+    private void AddPointToScore() {
+        GameObject scoreObject = GameObject.Find("Score");
+        Score score = scoreObject.GetComponent<Score>();
+        score.Increment();
     }
 }

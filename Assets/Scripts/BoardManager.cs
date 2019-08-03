@@ -12,6 +12,7 @@ public class BoardManager : MonoBehaviour {
   public GameObject Border;
   public Food TheFood;
   public Snake TheSnake;
+  public GameObject score;
 
   void Awake() {
     Debug.Log(System.String.Concat("[BoardManager::Awake()] Initializing board. Size: ", Rows, "x", Columns));
@@ -31,10 +32,10 @@ public class BoardManager : MonoBehaviour {
     {
         GameObject newWall;
         newWall = GameObject.Instantiate(Border);
-        newWall.transform.position = new Vector3(i - (Columns / 2), -5f, -1);
+        newWall.transform.position = new Vector3(i - (Columns / 2), -(Columns / 2), -1);
         newWall.name = "BorderWall";
         newWall = GameObject.Instantiate(Border);
-        newWall.transform.position = new Vector3(i - (Columns / 2), 5f, -1);
+        newWall.transform.position = new Vector3(i - (Columns / 2), (Columns / 2), -1);
         newWall.name = "BorderWall";
         }
         for (int i = 0; i < Rows; i++)
@@ -42,15 +43,19 @@ public class BoardManager : MonoBehaviour {
         GameObject newWall;
         newWall = GameObject.Instantiate(Border);
         newWall.name = "BorderWall";
-        newWall.transform.position = new Vector3(-5f, i - (Rows / 2), -1);
+        newWall.transform.position = new Vector3(-(Columns / 2), i - (Rows / 2), -1);
         newWall = GameObject.Instantiate(Border);
-        newWall.transform.position = new Vector3(5f, i - (Rows / 2), -1);
+        newWall.transform.position = new Vector3((Columns / 2), i - (Rows / 2), -1);
         newWall.name = "BorderWall";
     }
+
+    GameObject newScore = Instantiate(score);
+    newScore.name = "Score";
+    DontDestroyOnLoad(newScore);
 }
 
 
-  bool AttemptToMove(Vector3 MovementVector) {
+  public bool AttemptToMove(Vector3 MovementVector) {
     TheSnake.MoveInDirection(MovementVector);
     return true;
   }
@@ -64,34 +69,35 @@ public class BoardManager : MonoBehaviour {
         -1
       )
     );
+    
   }
-  
-  // Update is called once per frame
-  void Update () {
-    if (Input.GetKeyDown(KeyCode.UpArrow)) {
-      Vector3 nextPosition = new Vector3(0, 1, 0);
-      AttemptToMove(nextPosition);
+
+    // Update is called once per frame
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            Vector3 nextPosition = new Vector3(0, 1, 0);
+            AttemptToMove(nextPosition);
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            Vector3 nextPosition = new Vector3(0, -1, 0);
+            AttemptToMove(nextPosition);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+            Vector3 nextPosition = new Vector3(-1, 0, 0);
+            AttemptToMove(nextPosition);
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+            Vector3 nextPosition = new Vector3(1, 0, 0);
+            AttemptToMove(nextPosition);
+        }
+        if (TheFood.IsEaten()) {
+            TheFood.SetPlace(
+              new Vector3(
+                Random.Range(-Columns / 2, Columns / 2),
+                Random.Range(-Rows / 2, Rows / 2),
+                -1
+              )
+            );
+        }
     }
-    if (Input.GetKeyDown(KeyCode.DownArrow)) {
-      Vector3 nextPosition = new Vector3(0, -1, 0);
-      AttemptToMove(nextPosition);
-    }
-    if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-      Vector3 nextPosition = new Vector3(-1, 0, 0);
-      AttemptToMove(nextPosition);
-    }
-    if (Input.GetKeyDown(KeyCode.RightArrow)) {
-      Vector3 nextPosition = new Vector3(1, 0, 0);
-      AttemptToMove(nextPosition);
-    }
-    if (TheFood.IsEaten()) {
-      TheFood.SetPlace(
-        new Vector3(
-          Random.Range(-Columns/2, Columns/2),
-          Random.Range(-Rows/2, Rows/2),
-          -1
-        )
-      );
-    }
-  }
 }

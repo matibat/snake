@@ -72,6 +72,11 @@ public class Snake : MonoBehaviour {
   private void Die() {
     Debug.Log(System.String.Concat("[Snake::Die()] Snake just died"));
     CancelInvoke("NextFrame");
+    GameObject scoreGameobject = GameObject.Find("Score");
+    Debug.Log("Score gameobject: " + scoreGameobject);
+    Score score = scoreGameobject.GetComponent<Score>();
+    Debug.Log("Score : " + score);
+    score.Show();
   }
 
   private void NextFrame() {

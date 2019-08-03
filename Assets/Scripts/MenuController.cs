@@ -13,10 +13,8 @@ public class MenuController : MonoBehaviour {
     }
 
     public void OnClick() {
+        GameObject score = GameObject.Find("Score");
+        Destroy(score);
         SceneManager.LoadScene("PlayingScene", LoadSceneMode.Single);
-    }
-
-    public void OtraFuncion() {
-        Debug.Log("Another click");
     }
 }
