@@ -1,0 +1,15 @@
+Assets/Prefabs/Player.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/Body.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/Grass.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/Grasss.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/Head.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/Tail.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/BodyPart.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/BorderWall.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/Food.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/Score.prefab filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/cube.blend filter=lfs diff=lfs merge=lfs -text
+Assets/Prefabs/plane.blend filter=lfs diff=lfs merge=lfs -text
+Assets/untitled.blend filter=lfs diff=lfs merge=lfs -text
+*.prefab filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
