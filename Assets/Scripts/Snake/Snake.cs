@@ -3,17 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Snake : MonoBehaviour {
+  private List<GameObject> SnakeComponents;
+  private Vector3 lastDirection;
 
-  public int InitialLength;
   public Vector3 FacingDirection;
   public GameObject head;
   public GameObject body;
   public GameObject tail;
   public float FrameRate;
+  public int InitialLength;
 
-  private List<GameObject> SnakeComponents;
   public bool SnakeMustGrow = false;
   public bool SnakeMustDie = false;
+
+  public bool IsFirstBody(GameObject probe) { 
+    return SnakeComponents[1] == probe;
+  }
+  
+  public Ray HeadDirectionToRay() {
+        GameObject headInstance = GetHead();
+        Ray ray = new Ray();
+        ray.origin = headInstance.transform.position;
+        ray.direction = GetNextPositionDirection();
+        return ray;
+  }
 
   private GameObject GetHead() {
     return SnakeComponents[0];
@@ -27,8 +40,12 @@ public class Snake : MonoBehaviour {
     return SnakeComponents[SnakeComponents.Count-1];
   }
 
-  private Vector3 GetNextPosition() {
+  private Vector3 GetNextPositionDirection() {
     return gameObject.transform.position - GetHead().transform.position;
+  }
+
+  public void UndoMovement() {
+    MoveInDirection(lastDirection);
   }
 
   public void MoveInDirection(Vector3 MovementVector) {
@@ -46,10 +63,7 @@ public class Snake : MonoBehaviour {
     SnakeComponents.RemoveAt(SnakeComponents.Count-2);
     SnakeComponents.Insert(1, SnakeBody);
 
-    // Rotate elements
-    //GetTail().transform.rotation = GetLastBody().transform.rotation;
-    //GetHead().transform.rotation = Quaternion.FromToRotation(Vector3.right, MovementVector);
-    //GetLastBody().transform.rotation = GetHead().transform.rotation;
+    lastDirection = MovementVector;
   }
 
   private void Grow(Vector3 MovementVector) {
@@ -80,7 +94,7 @@ public class Snake : MonoBehaviour {
   }
 
   private void NextFrame() {
-    Vector3 MovementVector = GetNextPosition();
+    Vector3 MovementVector = GetNextPositionDirection();
     if (SnakeMustGrow) {
       Grow(MovementVector);
     } else if (SnakeMustDie) {

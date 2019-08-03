@@ -18,7 +18,7 @@ public class JoystickNavigation : MonoBehaviour {
     }
 
 
-    public void OnEnd() {
+    public void OnMove() {
         j4dDirection direction = controller.direction;
         HandleJoystickAction(direction);
     }

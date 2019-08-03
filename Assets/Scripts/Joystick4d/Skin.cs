@@ -74,7 +74,7 @@ public class Skin : MonoBehaviour {
         Debug.Log("On direction changed");
     }
 
-    public void OnEnd() {
+    public void OnMove() {
         Hide();
         Debug.Log("On end");
     }
