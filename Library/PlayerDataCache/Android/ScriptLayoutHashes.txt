@@ -124,6 +124,7 @@ d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 98d69a140ec0084cde3b6a5e09aea295 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+7878984b9a445fc0ffa1fff06fcdd8c5 Assembly-CSharp.dll:.Skin
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Food
@@ -171,9 +172,8 @@ aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.EatsFood
 0a97712339e76a6c70e19fcbd4802b7e Assembly-CSharp.dll:.MenuController
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
+2af1d75170b904d7fe402e052a774703 Assembly-CSharp.dll:.JoystickNavigation
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-7878984b9a445fc0ffa1fff06fcdd8c5 Assembly-CSharp.dll:.Skin
 615c3eaa1050914eaa26376a07ee05de Assembly-CSharp.dll:.Joystick4dController
-2af1d75170b904d7fe402e052a774703 Assembly-CSharp.dll:.JoystickNavigation

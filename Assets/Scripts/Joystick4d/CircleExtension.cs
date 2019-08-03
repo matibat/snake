@@ -13,7 +13,7 @@ public static class CircleExtension {
         var points = new Vector3[pointCount];
         for (int pointIndex = 0; pointIndex < pointCount; pointIndex++) {
             var rad = Mathf.Deg2Rad * (pointIndex * 360f / segments);
-            points[pointIndex] = new Vector3(Mathf.Sin(rad) * radius, 0, Mathf.Cos(rad) * radius);
+            points[pointIndex] = new Vector3(Mathf.Sin(rad) * radius, Mathf.Cos(rad) * radius, 0);
         }
         line.SetPositions(points);
     }
