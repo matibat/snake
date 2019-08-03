@@ -174,3 +174,6 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+7878984b9a445fc0ffa1fff06fcdd8c5 Assembly-CSharp.dll:.Skin
+615c3eaa1050914eaa26376a07ee05de Assembly-CSharp.dll:.Joystick4dController
+2af1d75170b904d7fe402e052a774703 Assembly-CSharp.dll:.JoystickNavigation
