@@ -15,59 +15,58 @@ public class BoardManager : MonoBehaviour {
   public GameObject score;
 
   void Awake() {
-    Debug.Log(System.String.Concat("[BoardManager::Awake()] Initializing board. Size: ", Rows, "x", Columns));
-    GameBoard = new GameObject[Columns, Rows];
+        Debug.Log(System.String.Concat("[BoardManager::Awake()] Initializing board. Size: ", Rows, "x", Columns));
+        GameBoard = new GameObject[Columns, Rows];
 
-    // Grass
-    for (int x = 0; x < Columns; x++) {
-      for (int y = 0; y < Rows; y++) { 
-        GameObject newObject = GameObject.Instantiate(Tile);
-        newObject.transform.position = new Vector3(x-(Columns/2), y-(Rows/2), -.5f);
-        GameBoard[x, y] = newObject;
-      }
+        // Grass
+        for (int x = 0; x < Columns; x++) {
+            for (int y = 0; y < Rows; y++) { 
+                GameObject newObject = GameObject.Instantiate(Tile);
+                newObject.transform.position = new Vector3(x-(Columns/2), y-(Rows/2), -.5f);
+                GameBoard[x, y] = newObject;
+            }
+        }
+
+        // Border
+        for (int i = 0; i < Columns; i++) {
+            GameObject newWall;
+            newWall = GameObject.Instantiate(Border);
+            newWall.transform.position = new Vector3(i - (Columns / 2), -(Rows / 2) - 1, -1);
+            newWall.name = "BorderWall";
+            newWall = GameObject.Instantiate(Border);
+            newWall.transform.position = new Vector3(i - (Columns / 2), (Rows / 2), -1);
+            newWall.name = "BorderWall";
+        }
+        for (int i = 0; i < Rows; i++) {
+            GameObject newWall;
+            newWall = GameObject.Instantiate(Border);
+            newWall.name = "BorderWall";
+            newWall.transform.position = new Vector3(-(Columns / 2) - 1, i - (Rows / 2), -1);
+            newWall = GameObject.Instantiate(Border);
+            newWall.transform.position = new Vector3((Columns / 2), i - (Rows / 2), -1);
+            newWall.name = "BorderWall";
+        }
+        GameObject newScore = Instantiate(score);
+        newScore.name = "Score";
+        DontDestroyOnLoad(newScore);
     }
 
-    // Border
-    for (int i = 0; i < Columns; i++) {
-        GameObject newWall;
-        newWall = GameObject.Instantiate(Border);
-        newWall.transform.position = new Vector3(i - (Columns / 2), -(Rows / 2) - 1, -1);
-        newWall.name = "BorderWall";
-        newWall = GameObject.Instantiate(Border);
-        newWall.transform.position = new Vector3(i - (Columns / 2), (Rows / 2), -1);
-        newWall.name = "BorderWall";
+
+    public bool AttemptToMove(Vector3 MovementVector) {
+        TheSnake.MoveInDirection(MovementVector);
+        return true;
     }
-    for (int i = 0; i < Rows; i++) {
-        GameObject newWall;
-        newWall = GameObject.Instantiate(Border);
-        newWall.name = "BorderWall";
-        newWall.transform.position = new Vector3(-(Columns / 2) - 1, i - (Rows / 2), -1);
-        newWall = GameObject.Instantiate(Border);
-        newWall.transform.position = new Vector3((Columns / 2), i - (Rows / 2), -1);
-        newWall.name = "BorderWall";
+
+    // Use this for initialization
+    void Start () {
+        TheFood.SetPlace(
+            new Vector3(
+                Random.Range(-Columns/2, Columns/2),
+                Random.Range(-Rows/2, Rows/2),
+                -1
+            )
+        );
     }
-    GameObject newScore = Instantiate(score);
-    newScore.name = "Score";
-    DontDestroyOnLoad(newScore);
-}
-
-
-  public bool AttemptToMove(Vector3 MovementVector) {
-    TheSnake.MoveInDirection(MovementVector);
-    return true;
-  }
-
-  // Use this for initialization
-  void Start () {
-    TheFood.SetPlace(
-      new Vector3(
-        Random.Range(-Columns/2, Columns/2),
-        Random.Range(-Rows/2, Rows/2),
-        -1
-      )
-    );
-    
-  }
 
     // Update is called once per frame
     void Update() {
@@ -89,11 +88,11 @@ public class BoardManager : MonoBehaviour {
         }
         if (TheFood.IsEaten()) {
             TheFood.SetPlace(
-              new Vector3(
-                Random.Range(-Columns / 2, Columns / 2),
-                Random.Range(-Rows / 2, Rows / 2),
-                -1
-              )
+                new Vector3(
+                    Random.Range(-Columns / 2, Columns / 2),
+                    Random.Range(-Rows / 2, Rows / 2),
+                    -1
+                )
             );
         }
     }
