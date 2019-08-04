@@ -112,7 +112,6 @@ public class Snake : MonoBehaviour {
       if (i == 0) {
         newObject = GameObject.Instantiate(head);
         newObject.name = "TheHead";
-        newObject.AddComponent<EatsFood>();
         Debug.Log("[Snake::Awake()] Adding head");
       } else if (i == InitialLength-1) {
         newObject = GameObject.Instantiate(tail);
