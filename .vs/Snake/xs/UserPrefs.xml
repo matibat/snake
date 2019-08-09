@@ -1,19 +1,39 @@
 ﻿<Properties StartupConfiguration="{EA5E5C94-03A1-AEDC-67AD-8DF2AB077E38}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Snake/DiesOnCollision.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Snake/Snake.cs">
     <Files>
-      <File FileName="Assets/Scripts/Snake/Snake.cs" Line="1" Column="5" />
-      <File FileName="Assets/Scripts/Joystick4d/Skin.cs" Line="77" Column="17" />
-      <File FileName="Assets/Scripts/Snake/JoystickNavigation.cs" Line="21" Column="17" />
-      <File FileName="Assets/Scripts/Snake/DiesOnCollision.cs" Line="39" Column="17" />
+      <File FileName="Assets/Scripts/Snake/Snake.cs" Line="164" Column="97" />
+      <File FileName="Assets/Scripts/Camera/GridController.cs" Line="83" Column="85" />
+      <File FileName="Assets/Scripts/Board/BoardManager.cs" Line="90" Column="17" />
+      <File FileName="Assets/Scripts/Food/Food.cs" Line="18" Column="46" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Snake" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Board" expanded="True" />
+                <Node name="Camera" expanded="True" />
+                <Node name="Food" expanded="True" />
+                <Node name="Snake" expanded="True">
+                  <Node name="Snake.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2b53b86b-4611-4c33-8f21-bbc0f4d05c8a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/mbatista/workspace/snake/Assets/Scripts/Joystick4d/Skin.cs" relfile="Assets/Scripts/Joystick4d/Skin.cs" line="52" column="1" />
       <Breakpoint file="/Users/mbatista/workspace/snake/Assets/Scripts/Joystick4d/Skin.cs" relfile="Assets/Scripts/Joystick4d/Skin.cs" line="108" column="73" />
+      <Breakpoint file="/Users/mbatista/workspace/snake/Assets/Scripts/Snake/Snake.cs" relfile="Assets/Scripts/Snake/Snake.cs" line="66" column="1" />
+      <Breakpoint file="/Users/mbatista/workspace/snake/.vs/Snake/xs/UserPrefs.xml" relfile=".vs/Snake/xs/UserPrefs.xml" line="73" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

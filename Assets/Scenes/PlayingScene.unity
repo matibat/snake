@@ -406,7 +406,7 @@ Prefab:
     - target: {fileID: 114671010080182142, guid: 832765ec70f15443f9f32ee4b3035c84,
         type: 2}
       propertyPath: FacingDirection.x
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 61923401473432550, guid: 832765ec70f15443f9f32ee4b3035c84,
         type: 2}
@@ -433,6 +433,29 @@ Prefab:
     - target: {fileID: 114671010080182142, guid: 832765ec70f15443f9f32ee4b3035c84,
         type: 2}
       propertyPath: tail
+      value: 
+      objectReference: {fileID: 1809628055033636, guid: 62e67ff4d69944d6e8927b5132c9f12c,
+        type: 2}
+    - target: {fileID: 114671010080182142, guid: 832765ec70f15443f9f32ee4b3035c84,
+        type: 2}
+      propertyPath: boardManager
+      value: 
+      objectReference: {fileID: 904684086}
+    - target: {fileID: 114671010080182142, guid: 832765ec70f15443f9f32ee4b3035c84,
+        type: 2}
+      propertyPath: headPrefab
+      value: 
+      objectReference: {fileID: 1809628055033636, guid: 62e67ff4d69944d6e8927b5132c9f12c,
+        type: 2}
+    - target: {fileID: 114671010080182142, guid: 832765ec70f15443f9f32ee4b3035c84,
+        type: 2}
+      propertyPath: bodyPrefab
+      value: 
+      objectReference: {fileID: 1809628055033636, guid: 62e67ff4d69944d6e8927b5132c9f12c,
+        type: 2}
+    - target: {fileID: 114671010080182142, guid: 832765ec70f15443f9f32ee4b3035c84,
+        type: 2}
+      propertyPath: tailPrefab
       value: 
       objectReference: {fileID: 1809628055033636, guid: 62e67ff4d69944d6e8927b5132c9f12c,
         type: 2}
@@ -479,7 +502,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -594,6 +617,7 @@ GameObject:
   - component: {fileID: 904684087}
   - component: {fileID: 904684086}
   - component: {fileID: 904684088}
+  - component: {fileID: 904684089}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -619,6 +643,7 @@ MonoBehaviour:
   TheFood: {fileID: 1033478793}
   TheSnake: {fileID: 1331635072}
   score: {fileID: 1838498056201390, guid: 0f8347a37cb57496b911f3451c63f7f5, type: 2}
+  gridController: {fileID: 0}
 --- !u!4 &904684087
 Transform:
   m_ObjectHideFlags: 0
@@ -626,7 +651,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 904684085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 332.20316, y: 220.00125, z: -94.27399}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -648,6 +673,25 @@ MonoBehaviour:
   right: {fileID: 1398709533}
   down: {fileID: 1724319503}
   left: {fileID: 1240343643}
+--- !u!114 &904684089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904684085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168158683359a4390a12836cad1ed86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraComponent: {fileID: 519420031}
+  displaySize: {x: 0, y: 0}
+  displayAspect: 0
+  boardBounds: {x: 0, y: 0}
+  boardAspect: 0
+  cellScale: {x: 0, y: 0, z: 0}
+  cellSize: 0
+  distanceFromCamera: 1
 --- !u!1 &1033478786
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d51f574dc544f0a901a52e4774a4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridController: {fileID: 0}
 --- !u!1 &1240343641
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +1011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca49b8c39baa4094934e5c245a4bf3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snake: {fileID: 0}
 --- !u!114 &1331635072 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114671010080182142, guid: 832765ec70f15443f9f32ee4b3035c84,

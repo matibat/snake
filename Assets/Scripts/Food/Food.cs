@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Food : MonoBehaviour {
-
   private bool isEaten = false;
+
+  public GridController gridController;
 
   public bool IsEaten() {
     bool currentValue = isEaten;
@@ -15,6 +16,8 @@ public class Food : MonoBehaviour {
   public void SetPlace(Vector3 newPlace) {
     Debug.Log(System.String.Concat("[Food::SetPlace()] Placing food in location: ", newPlace.ToString()));
     gameObject.transform.position = newPlace;
+    //GameObject theFood = gameObject;
+    //gridController.PlaceObject(ref theFood, newPlace);
     gameObject.SetActive(true);
     isEaten = false;
   }

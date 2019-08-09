@@ -2,26 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EatsFood : MonoBehaviour
-{
+public class EatsFood : MonoBehaviour {
+    public Snake snake;
 
-    public void OnTriggerEnter(Collider collider)
-    {
-        Snake snake = GetComponent<Snake>();
+    /* Todo: rewrite it all */
+    public void OnTriggerEnter(Collider collider) {
         string collisionName = collider.gameObject.name;
-        if (collisionName == "Food")
-        {
+        if (collisionName == "Food") {
             snake.SnakeMustGrow = true;
             AddPointToScore();
         }
     }
 
-    public void OnTriggerExit(Collider collider)
-    {
-        Snake snake = GetComponent<Snake>();
+    public void OnTriggerExit(Collider collider) {
         string collisionName = collider.gameObject.name;
-        if (collisionName == "Food")
-        {
+        if (collisionName == "Food") {
             snake.SnakeMustGrow = false;
         }
     }

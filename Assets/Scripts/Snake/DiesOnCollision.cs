@@ -13,13 +13,11 @@ public class DiesOnCollision : MonoBehaviour {
         collider = GetComponent<Collider>();
     }
 
-    public void OnTriggerEnter(Collider collider)
-    {
+    public void OnTriggerEnter(Collider collider) {
         Snake snake = GetComponent<Snake>();
         GameObject collisionObject = collider.gameObject;
         string collisionName = collisionObject.name;
-        if (collisionName == "BodyPart" || collisionName == "TheTail" || collisionName == "BorderWall")
-        {
+        if (collisionName == "BodyPart" || collisionName == "TheTail" || collisionName == "BorderWall") {
             if (!snake.IsFirstBody(collisionObject)) {
                 snake.SnakeMustDie = true;
             } else {
